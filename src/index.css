@@ -1,13 +1,91 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "ArcanNine";
+  src: url("./assets/fonts/Arcane\ Nine.otf");
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/fonts/Poppins-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Archivo";
+  src: url("./assets/fonts/ArchivoBlack-Regular.ttf");
+}
+
+:root {
+  --primary-color: #8c6646;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: white;
+  background: black;
+  overflow: hidden;
+}
+
+.active {
+  color: var(--primary-color);
+}
+
+.contain::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  width: 50%;
+  height: 50%;
+  background-color: rgba(11, 28, 73, 1);
+  border-radius: 50%;
+  filter: blur(200px);
+}
+
+.contain::after {
+  content: "";
+  position: absolute;
+
+  bottom: -30%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+  width: 50%;
+  height: 50%;
+  background-color: rgba(156, 18, 163, 1);
+  border-radius: 50%;
+  filter: blur(200px);
+}
+
+.image-jinx {
+  transition: all;
+  transform: translateX(-35%) scale(1.4) translateY(15%);
+  animation: trailer-back-anim 0.3s ease-in-out forwards;
+  animation-delay: 0s;
+}
+
+.trailer-anim {
+  animation-delay: 0s;
+  animation: trailer-anim 0.3s ease-in-out forwards;
+}
+
+@keyframes trailer-anim {
+  0% {
+    transform: translateX(-35%) scale(1.4) translateY(15%);
+  }
+  100% {
+    transform: translateX(-65%) scale(1) translateY(30%);
+  }
+}
+
+@keyframes trailer-back-anim {
+  0% {
+    transform: translateX(-65%) scale(1) translateY(30%);
+  }
+  100% {
+    transform: translateX(-35%) scale(1.4) translateY(15%);
+  }
 }
