@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import ReactDOM from "react-dom/client";
 import Layout from "./Layout";
 import Home from "./pages/Home";
@@ -31,3 +32,5 @@ root.render(
     </BrowserRouter>
   </React.StrictMode>
 );
+
+serviceWorkerRegistration.register();
